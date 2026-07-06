@@ -1,0 +1,198 @@
+export interface Project {
+  slug: string;
+  title: string;
+  client: string;
+  industry: string;
+  category: string; // filter key
+  services: string[];
+  tech: string[];
+  description: string;
+  problem: string;
+  solution: string;
+  results: { label: string; value: string }[];
+  timeline: string;
+  gradient: string;
+  image: string;
+}
+
+export const projects: Project[] = [
+  {
+    slug: "ez-notary-services",
+    title: "Local SEO Domination for a Notary Business",
+    client: "EZ Notary Services",
+    industry: "Professional Services",
+    category: "SEO",
+    services: ["Local SEO", "Google Business Profile", "Website"],
+    tech: ["React", "Next.js", "GBP", "Ahrefs"],
+    description: "Rebuilt web presence and captured the Houston notary map pack.",
+    problem: "Zero map-pack visibility and inconsistent NAP across the web.",
+    solution: "Full GBP overhaul, 60+ citations, and a schema-rich local landing site.",
+    results: [
+      { label: "Map-Pack Presence", value: "Top 3" },
+      { label: "Profile Calls", value: "+412%" },
+      { label: "Direction Requests", value: "+287%" },
+      { label: "Organic Leads / mo", value: "68" },
+    ],
+    timeline: "90 days",
+    gradient: "from-brand-blue to-brand-teal",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "dream-homes-designed",
+    title: "Luxury Real-Estate Brand & Website",
+    client: "Dream Homes Designed LLC",
+    industry: "Real Estate",
+    category: "Web Development",
+    services: ["Brand", "Web Development", "SEO"],
+    tech: ["React", "Framer Motion", "Sanity"],
+    description: "Premium editorial site to showcase luxury properties.",
+    problem: "Legacy WordPress site slow, unbranded, and invisible in search.",
+    solution: "Custom-designed site with cinematic hero, headless CMS, and Core Web Vitals-first build.",
+    results: [
+      { label: "PageSpeed", value: "99" },
+      { label: "Time on Site", value: "+218%" },
+      { label: "Inquiries / mo", value: "3.4×" },
+      { label: "Organic Traffic", value: "+286%" },
+    ],
+    timeline: "6 weeks",
+    gradient: "from-brand-green to-brand-teal",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "ablaze-tree-pros",
+    title: "Google Ads Engine for Tree Care",
+    client: "Ablaze Tree Pros LLC",
+    industry: "Home Services",
+    category: "Google Ads",
+    services: ["Google Ads", "Landing Pages", "CRO"],
+    tech: ["Google Ads", "GA4", "Unbounce"],
+    description: "Search + PMax program driving 200+ storm-response calls per month.",
+    problem: "Overspend on generic keywords with no attribution or landing-page flow.",
+    solution: "Restructured account, geo-targeted PMax, and 4 dedicated CRO landing pages.",
+    results: [
+      { label: "CPA", value: "-52%" },
+      { label: "ROAS", value: "7.8×" },
+      { label: "Booked Jobs / mo", value: "+312%" },
+      { label: "Ad Quality Score", value: "9/10" },
+    ],
+    timeline: "60 days",
+    gradient: "from-orange-500 to-red-500",
+    image: "https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "cozy-place-learning",
+    title: "Social Media + Enrollment Funnel",
+    client: "Cozy Place Learning Center",
+    industry: "Education",
+    category: "Social Media",
+    services: ["Social Media", "Content", "Meta Ads"],
+    tech: ["Meta Ads", "Later", "CapCut"],
+    description: "Full-funnel Meta program filling every enrollment cycle.",
+    problem: "Wait-list-worthy program with no digital demand engine.",
+    solution: "Reels-first content, retargeting, and a lead-gen ad set with warm nurture.",
+    results: [
+      { label: "Followers", value: "+4,800" },
+      { label: "Tour Bookings", value: "+215%" },
+      { label: "Cost / Enrollment", value: "-46%" },
+      { label: "Waitlist", value: "Full" },
+    ],
+    timeline: "4 months",
+    gradient: "from-pink-500 to-purple-500",
+    image: "https://images.unsplash.com/photo-1587653263995-422546a7a569?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "south-jersey-orofacial",
+    title: "Healthcare Brand + Booking CRM",
+    client: "South Jersey Orofacial Myology",
+    industry: "Healthcare",
+    category: "CRM",
+    services: ["CRM", "Automation", "Web"],
+    tech: ["Supabase", "Next.js", "Zapier"],
+    description: "Custom intake + scheduling CRM plus HIPAA-aligned patient portal.",
+    problem: "Paper intakes, manual scheduling, no follow-up automation.",
+    solution: "Custom CRM with e-intake, reminders, follow-up sequences, and clinician dashboard.",
+    results: [
+      { label: "Admin Time", value: "-63%" },
+      { label: "No-Show Rate", value: "-41%" },
+      { label: "Patient NPS", value: "78" },
+      { label: "Bookings / mo", value: "+134%" },
+    ],
+    timeline: "10 weeks",
+    gradient: "from-brand-teal to-brand-blue",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "artisan-cafe-app",
+    title: "Loyalty & Ordering Mobile App",
+    client: "Artisan Coffee Co.",
+    industry: "Food & Beverage",
+    category: "Mobile Apps",
+    services: ["Mobile App", "Design", "Backend"],
+    tech: ["React Native", "Supabase", "Stripe"],
+    description: "Loyalty-first ordering app with tap-to-pay and push offers.",
+    problem: "Third-party apps eating margin and controlling customer data.",
+    solution: "Native-feel React Native app with in-house loyalty engine and Stripe checkout.",
+    results: [
+      { label: "App Rating", value: "4.9★" },
+      { label: "Repeat Orders", value: "+58%" },
+      { label: "Third-Party Fees", value: "-72%" },
+      { label: "MAU", value: "12,400" },
+    ],
+    timeline: "12 weeks",
+    gradient: "from-amber-500 to-orange-600",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "modern-law-firm",
+    title: "Boutique Law Firm Rebrand",
+    client: "Meridian Law Group",
+    industry: "Law Firms",
+    category: "Branding",
+    services: ["Brand", "Web", "Content"],
+    tech: ["Figma", "Framer", "Sanity"],
+    description: "Full identity system + website + content engine for a boutique firm.",
+    problem: "Dated brand and low-authority content in a competitive market.",
+    solution: "New identity, editorial site, and 40+ authority articles across practice areas.",
+    results: [
+      { label: "Organic Traffic", value: "+318%" },
+      { label: "Case Inquiries", value: "+142%" },
+      { label: "Avg. Deal Size", value: "+27%" },
+      { label: "Domain Rating", value: "+18" },
+    ],
+    timeline: "16 weeks",
+    gradient: "from-slate-700 to-brand-blue",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&auto=format&fit=crop&q=80",
+  },
+  {
+    slug: "ecommerce-outdoor",
+    title: "DTC Outdoor Brand — 6× ROAS",
+    client: "Ridgeline Outdoor",
+    industry: "E-Commerce",
+    category: "Google Ads",
+    services: ["Google Ads", "Meta Ads", "CRO"],
+    tech: ["Shopify", "GA4", "Klaviyo"],
+    description: "Scaled a Shopify DTC brand from $40K to $380K monthly revenue.",
+    problem: "Flat revenue, no attribution, and inefficient paid spend across channels.",
+    solution: "Rebuilt attribution, restructured accounts, and integrated Klaviyo lifecycle flows.",
+    results: [
+      { label: "Monthly Revenue", value: "9.5×" },
+      { label: "Blended ROAS", value: "6.4×" },
+      { label: "Email Revenue", value: "32%" },
+      { label: "Repeat Rate", value: "+41%" },
+    ],
+    timeline: "8 months",
+    gradient: "from-emerald-500 to-brand-green",
+    image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&auto=format&fit=crop&q=80",
+  },
+];
+
+export const portfolioCategories = [
+  "All",
+  "SEO",
+  "Web Development",
+  "Mobile Apps",
+  "Branding",
+  "CRM",
+  "Google Ads",
+  "Social Media",
+];

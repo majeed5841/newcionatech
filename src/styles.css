@@ -1,0 +1,232 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand tokens — extracted from the CIONA TECH logo */
+  --color-brand-green: var(--brand-green);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-teal: var(--brand-teal);
+  --color-ink: var(--ink);
+  --color-highlight: var(--highlight);
+  --color-success: var(--success);
+
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-elegant: 0 20px 60px -20px color-mix(in oklab, var(--brand-blue) 30%, transparent);
+  --shadow-glow: 0 0 60px -10px color-mix(in oklab, var(--brand-teal) 55%, transparent);
+  --shadow-card: 0 10px 40px -12px color-mix(in oklab, var(--ink) 18%, transparent);
+
+  --gradient-brand: linear-gradient(135deg, var(--brand-green) 0%, var(--brand-teal) 50%, var(--brand-blue) 100%);
+  --gradient-brand-soft: linear-gradient(135deg,
+    color-mix(in oklab, var(--brand-green) 15%, white) 0%,
+    color-mix(in oklab, var(--brand-teal) 15%, white) 50%,
+    color-mix(in oklab, var(--brand-blue) 15%, white) 100%);
+  --gradient-hero:
+    radial-gradient(60% 60% at 15% 20%, color-mix(in oklab, var(--brand-green) 18%, transparent), transparent 60%),
+    radial-gradient(60% 60% at 85% 15%, color-mix(in oklab, var(--brand-blue) 20%, transparent), transparent 65%),
+    radial-gradient(80% 60% at 50% 100%, color-mix(in oklab, var(--brand-teal) 15%, transparent), transparent 60%),
+    linear-gradient(180deg, #ffffff, #f6fbfa);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Logo palette */
+  --brand-green: oklch(0.6 0.18 152);   /* ~#009048 */
+  --brand-blue: oklch(0.5 0.16 245);    /* ~#0060A8 */
+  --brand-teal: oklch(0.58 0.11 200);   /* ~#0F7A9B */
+  --ink: oklch(0.22 0.03 240);          /* deep ink for text */
+  --highlight: oklch(0.78 0.15 70);     /* amber for stars/badges */
+  --success: oklch(0.72 0.15 160);
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.22 0.03 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 240);
+  --primary: oklch(0.5 0.16 245);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.97 0.008 220);
+  --secondary-foreground: oklch(0.22 0.03 240);
+  --muted: oklch(0.97 0.008 220);
+  --muted-foreground: oklch(0.5 0.02 240);
+  --accent: oklch(0.95 0.02 200);
+  --accent-foreground: oklch(0.22 0.03 240);
+  --destructive: oklch(0.6 0.24 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.92 0.008 220);
+  --input: oklch(0.92 0.008 220);
+  --ring: oklch(0.5 0.16 245);
+}
+
+.dark {
+  --background: oklch(0.18 0.02 240);
+  --foreground: oklch(0.97 0.005 240);
+  --card: oklch(0.22 0.02 240);
+  --card-foreground: oklch(0.97 0.005 240);
+  --popover: oklch(0.22 0.02 240);
+  --popover-foreground: oklch(0.97 0.005 240);
+  --primary: oklch(0.7 0.14 200);
+  --primary-foreground: oklch(0.18 0.02 240);
+  --secondary: oklch(0.26 0.03 240);
+  --secondary-foreground: oklch(0.97 0.005 240);
+  --muted: oklch(0.26 0.03 240);
+  --muted-foreground: oklch(0.72 0.02 240);
+  --accent: oklch(0.3 0.04 220);
+  --accent-foreground: oklch(0.97 0.005 240);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.7 0.14 200);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; font-size: 15px; }
+  @media (min-width: 1280px) { html { font-size: 15.5px; } }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  ::selection { background: color-mix(in oklab, var(--brand-blue) 25%, transparent); }
+}
+
+/* Utilities */
+@utility text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-brand { background-image: var(--gradient-brand); }
+@utility bg-gradient-brand-soft { background-image: var(--gradient-brand-soft); }
+@utility bg-hero { background-image: var(--gradient-hero); }
+
+@utility glass {
+  background-color: color-mix(in oklab, white 70%, transparent);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+}
+@utility glass-strong {
+  background-color: color-mix(in oklab, white 85%, transparent);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+}
+@utility glass-dark {
+  background-color: color-mix(in oklab, var(--ink) 65%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid color-mix(in oklab, #ffffff 10%, transparent);
+}
+
+@utility shadow-elegant { box-shadow: var(--shadow-elegant); }
+@utility shadow-glow { box-shadow: var(--shadow-glow); }
+@utility shadow-card { box-shadow: var(--shadow-card); }
+
+@utility hover-lift {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  &:hover { transform: translateY(-6px); box-shadow: var(--shadow-elegant); }
+}
+
+/* Gradient border card */
+@utility gradient-border {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: var(--gradient-brand);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+@utility marquee { animation: marquee 30s linear infinite; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  33% { transform: translate(30px,-40px) scale(1.1); }
+  66% { transform: translate(-20px,30px) scale(0.95); }
+}
+@utility blob { animation: blob 14s ease-in-out infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@utility float { animation: float 6s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@utility shimmer-text {
+  background: linear-gradient(90deg, var(--brand-green), var(--brand-teal), var(--brand-blue), var(--brand-teal), var(--brand-green));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(2); opacity: 0; }
+}
+@utility pulse-ring { animation: pulse-ring 2.4s cubic-bezier(0.4,0,0.6,1) infinite; }
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+@utility bounce-down { animation: bounce-down 2s ease-in-out infinite; }
+
+/* Grid pattern (subtle background) */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--ink) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--ink) 5%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
