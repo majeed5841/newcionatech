@@ -1,22 +1,19 @@
-import { createStart, createMiddleware } from "@tanstack/react-start";
+import { createRouter as createTanStackRouter } from '@tanstack/react-router'
+import { routeTree } from './routeTree.gen'
 
-import { renderErrorPage } from "./lib/error-page";
+// Router Instance create karein
+const router = createTanStackRouter({
+  routeTree,
+})
 
-const errorMiddleware = createMiddleware().server(async ({ next }) => {
-  try {
-    return await next();
-  } catch (error) {
-    if (error != null && typeof error === "object" && "statusCode" in error) {
-      throw error;
-    }
-    console.error(error);
-    return new Response(renderErrorPage(), {
-      status: 500,
-      headers: { "content-type": "text/html; charset=utf-8" },
-    });
+// Register type for type-safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
   }
-});
+}
 
-export const startInstance = createStart(() => ({
-  requestMiddleware: [errorMiddleware],
-}));
+// Yeh function TanStack Start ki hydration dhoondti hai
+export function getRouter() {
+  return router;
+}
