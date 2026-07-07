@@ -1,6 +1,7 @@
 import { a as __toESM } from "../_runtime.mjs";
 import { a as motion, o as AnimatePresence } from "../_libs/framer-motion.mjs";
-import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
 import { K as Funnel, _t as ArrowRight, a as Users, ht as Award, o as TrendingUp, s as Target } from "../_libs/lucide-react.mjs";
 import { a as TiltCard, i as Testimonials, r as Reveal, t as Counter } from "./Testimonials-DyS1I9jQ.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";

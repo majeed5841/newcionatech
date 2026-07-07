@@ -1,6 +1,7 @@
 import { a as __toESM } from "../_runtime.mjs";
 import { a as motion, i as useScroll, n as useTransform, r as useMotionValue, s as performance_default, t as useSpring } from "../_libs/framer-motion.mjs";
-import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
 import { l as Star, x as Quote } from "../_libs/lucide-react.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/Testimonials-DyS1I9jQ.js
 var import_react = /* @__PURE__ */ __toESM(require_react());

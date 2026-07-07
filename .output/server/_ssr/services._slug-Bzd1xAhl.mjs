@@ -1,6 +1,7 @@
 import { a as __toESM } from "../_runtime.mjs";
 import { a as motion, i as useScroll, t as useSpring } from "../_libs/framer-motion.mjs";
-import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
 import { $ as Cpu, B as HeartPulse, C as Phone, H as HardHat, I as Landmark, O as MessageCircle, R as House, W as GraduationCap, _t as ArrowRight, a as Users, at as CircleCheck, b as Rocket, c as Stethoscope, ft as Calendar, h as ShieldCheck, ht as Award, i as Utensils, it as CirclePlay, l as Star, nt as CircleX, o as TrendingUp, ot as ChevronRight, p as ShoppingBag, pt as Building2, q as Factory, s as Target, t as Zap, tt as Clock, u as Sparkles, ut as Car, x as Quote, y as Scale } from "../_libs/lucide-react.mjs";
 import { a as TiltCard, i as Testimonials, r as Reveal, t as Counter } from "./Testimonials-DyS1I9jQ.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";

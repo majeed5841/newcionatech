@@ -1,5 +1,6 @@
 import { a as __toESM } from "../_runtime.mjs";
-import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
+import { n as require_react } from "../_libs/@radix-ui/react-compose-refs+[...].mjs";
+import { n as require_jsx_runtime } from "../_libs/react+tanstack__react-query.mjs";
 import { Q as Crown, U as Handshake, _t as ArrowRight, a as Users, at as CircleCheck, b as Rocket, ht as Award, l as Star, m as Shield, o as TrendingUp, rt as CircleQuestionMark, t as Zap, tt as Clock, u as Sparkles } from "../_libs/lucide-react.mjs";
 import { a as TiltCard, i as Testimonials, r as Reveal, t as Counter } from "./Testimonials-DyS1I9jQ.mjs";
 import { h as Link } from "../_libs/@tanstack/react-router+[...].mjs";
