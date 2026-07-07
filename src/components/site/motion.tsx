@@ -21,7 +21,7 @@ export function Reveal({
   delay?: number;
   as?: React.ElementType;
 }) {
-  const MotionAs = motion(As);
+  const MotionAs = motion.create(As);
   return (
     <MotionAs
       className={className}
