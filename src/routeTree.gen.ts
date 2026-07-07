@@ -16,6 +16,9 @@ import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesWebDevelopmentRouteImport } from './routes/services/web-development'
+import { Route as ServicesUiUxDesignRouteImport } from './routes/services/ui-ux-design'
+import { Route as ServicesConsultingRouteImport } from './routes/services/consulting'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as SrcRoutesServicesGoogleBusinessProfileRouteImport } from './routes/src/routes/services.google-business-profile'
 
@@ -54,6 +57,21 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesWebDevelopmentRoute = ServicesWebDevelopmentRouteImport.update({
+  id: '/web-development',
+  path: '/web-development',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesUiUxDesignRoute = ServicesUiUxDesignRouteImport.update({
+  id: '/ui-ux-design',
+  path: '/ui-ux-design',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesConsultingRoute = ServicesConsultingRouteImport.update({
+  id: '/consulting',
+  path: '/consulting',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -75,6 +93,9 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/consulting': typeof ServicesConsultingRoute
+  '/services/ui-ux-design': typeof ServicesUiUxDesignRoute
+  '/services/web-development': typeof ServicesWebDevelopmentRoute
   '/src/routes/services/google-business-profile': typeof SrcRoutesServicesGoogleBusinessProfileRoute
 }
 export interface FileRoutesByTo {
@@ -86,6 +107,9 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/consulting': typeof ServicesConsultingRoute
+  '/services/ui-ux-design': typeof ServicesUiUxDesignRoute
+  '/services/web-development': typeof ServicesWebDevelopmentRoute
   '/src/routes/services/google-business-profile': typeof SrcRoutesServicesGoogleBusinessProfileRoute
 }
 export interface FileRoutesById {
@@ -98,6 +122,9 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/services/$slug': typeof ServicesSlugRoute
+  '/services/consulting': typeof ServicesConsultingRoute
+  '/services/ui-ux-design': typeof ServicesUiUxDesignRoute
+  '/services/web-development': typeof ServicesWebDevelopmentRoute
   '/src/routes/services/google-business-profile': typeof SrcRoutesServicesGoogleBusinessProfileRoute
 }
 export interface FileRouteTypes {
@@ -111,6 +138,9 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/services/$slug'
+    | '/services/consulting'
+    | '/services/ui-ux-design'
+    | '/services/web-development'
     | '/src/routes/services/google-business-profile'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -122,6 +152,9 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/services/$slug'
+    | '/services/consulting'
+    | '/services/ui-ux-design'
+    | '/services/web-development'
     | '/src/routes/services/google-business-profile'
   id:
     | '__root__'
@@ -133,6 +166,9 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/services/$slug'
+    | '/services/consulting'
+    | '/services/ui-ux-design'
+    | '/services/web-development'
     | '/src/routes/services/google-business-profile'
   fileRoutesById: FileRoutesById
 }
@@ -198,6 +234,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/web-development': {
+      id: '/services/web-development'
+      path: '/web-development'
+      fullPath: '/services/web-development'
+      preLoaderRoute: typeof ServicesWebDevelopmentRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/ui-ux-design': {
+      id: '/services/ui-ux-design'
+      path: '/ui-ux-design'
+      fullPath: '/services/ui-ux-design'
+      preLoaderRoute: typeof ServicesUiUxDesignRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/consulting': {
+      id: '/services/consulting'
+      path: '/consulting'
+      fullPath: '/services/consulting'
+      preLoaderRoute: typeof ServicesConsultingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/$slug': {
       id: '/services/$slug'
       path: '/$slug'
@@ -217,10 +274,16 @@ declare module '@tanstack/react-router' {
 
 interface ServicesRouteChildren {
   ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesConsultingRoute: typeof ServicesConsultingRoute
+  ServicesUiUxDesignRoute: typeof ServicesUiUxDesignRoute
+  ServicesWebDevelopmentRoute: typeof ServicesWebDevelopmentRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesSlugRoute: ServicesSlugRoute,
+  ServicesConsultingRoute: ServicesConsultingRoute,
+  ServicesUiUxDesignRoute: ServicesUiUxDesignRoute,
+  ServicesWebDevelopmentRoute: ServicesWebDevelopmentRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(

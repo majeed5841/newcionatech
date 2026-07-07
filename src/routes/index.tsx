@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   ArrowRight, Search, Megaphone, Code2, MousePointerClick, Palette, Database,
   Smartphone, PenTool, Mail, LayoutDashboard, ShoppingCart, Bot, Sparkles,
@@ -464,22 +465,27 @@ function Stats() {
 }
 
 /* ================== SERVICES ================== */
-const services = [
-  { icon: Search, title: "Search Engine Optimization", desc: "Rank higher, drive qualified organic traffic, and grow authority.", tone: "green" as const },
-  { icon: MapPin, title: "Google Business Profile", desc: "Dominate local search with a fully optimized GBP presence.", tone: "blue" as const },
-  { icon: Megaphone, title: "Social Media Marketing", desc: "Content, community, and paid social that convert followers to buyers.", tone: "teal" as const },
-  { icon: Code2, title: "Web Development", desc: "Blazing-fast, conversion-focused websites built to scale.", tone: "blue" as const },
-  { icon: MousePointerClick, title: "Google Ads (PPC)", desc: "Profitable paid campaigns with ROI-obsessed optimization.", tone: "green" as const },
-  { icon: Palette, title: "Graphic & Brand Design", desc: "Brand identity, interfaces, and visuals that stand out.", tone: "teal" as const },
-  { icon: Smartphone, title: "App Development", desc: "Native & cross-platform iOS/Android apps with premium UX.", tone: "green" as const },
-  { icon: Database, title: "CRM & ERP Development", desc: "Custom CRM/ERP platforms tailored to your workflow.", tone: "blue" as const },
-  { icon: Bot, title: "AI & Automation", desc: "AI copilots, chatbots, and workflows that save hundreds of hours.", tone: "teal" as const },
-  { icon: ShoppingCart, title: "E-commerce (Shopify & More)", desc: "Shopify, WooCommerce and custom stores built to convert 24/7.", tone: "green" as const },
-  { icon: Mail, title: "Email Marketing", desc: "Lifecycle, transactional, and campaign email that drives revenue.", tone: "blue" as const },
-  { icon: LayoutDashboard, title: "Business Consulting", desc: "Go-to-market, analytics, and growth strategy for scale-ups.", tone: "teal" as const },
-];
-
 function Services() {
+  const services = [
+    { title: "Search Engine Optimization", desc: "Rank higher, drive qualified organic traffic, and grow authority.", tone: "green" as const, iconName: "Search" },
+    { title: "Google Business Profile", desc: "Dominate local search with a fully optimized GBP presence.", tone: "blue" as const, iconName: "MapPin" },
+    { title: "Social Media Marketing", desc: "Content, community, and paid social that convert followers to buyers.", tone: "teal" as const, iconName: "Megaphone" },
+    { title: "Web Development", desc: "Blazing-fast, conversion-focused websites built to scale.", tone: "blue" as const, iconName: "Code2" },
+    { title: "Google Ads (PPC)", desc: "Profitable paid campaigns with ROI-obsessed optimization.", tone: "green" as const, iconName: "MousePointerClick" },
+    { title: "Graphic & Brand Design", desc: "Brand identity, interfaces, and visuals that stand out.", tone: "teal" as const, iconName: "Palette" },
+    { title: "App Development", desc: "Native & cross-platform iOS/Android apps with premium UX.", tone: "green" as const, iconName: "Smartphone" },
+    { title: "CRM & ERP Development", desc: "Custom CRM/ERP platforms tailored to your workflow.", tone: "blue" as const, iconName: "Database" },
+    { title: "AI & Automation", desc: "AI copilots, chatbots, and workflows that save hundreds of hours.", tone: "teal" as const, iconName: "Bot" },
+    { title: "E-commerce (Shopify & More)", desc: "Shopify, WooCommerce and custom stores built to convert 24/7.", tone: "green" as const, iconName: "ShoppingCart" },
+    { title: "Email Marketing", desc: "Lifecycle, transactional, and campaign email that drives revenue.", tone: "blue" as const, iconName: "Mail" },
+    { title: "Business Consulting", desc: "Go-to-market, analytics, and growth strategy for scale-ups.", tone: "teal" as const, iconName: "LayoutDashboard" },
+  ];
+
+  const iconMap: Record<string, React.ElementType> = {
+    Search, MapPin, Megaphone, Code2, MousePointerClick, Palette, 
+    Smartphone, Database, Bot, ShoppingCart, Mail, LayoutDashboard
+  };
+
   return (
     <section id="services" className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <Reveal className="mx-auto max-w-2xl text-center">
@@ -495,6 +501,7 @@ function Services() {
 
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {services.map((s, i) => {
+          const Icon = iconMap[s.iconName];
           const toneBg =
             s.tone === "green" ? "bg-brand-green/10 text-brand-green" :
             s.tone === "blue" ? "bg-brand-blue/10 text-brand-blue" :
@@ -504,7 +511,7 @@ function Services() {
               <TiltCard className="group h-full">
                 <div className="gradient-border h-full rounded-3xl bg-white p-7 shadow-card transition hover:shadow-elegant">
                   <div className={`grid h-12 w-12 place-items-center rounded-2xl ${toneBg}`}>
-                    <s.icon className="h-6 w-6" />
+                    <Icon className="h-6 w-6" />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-bold">{s.title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
@@ -560,18 +567,22 @@ function SeoBanner() {
 }
 
 /* ================== WHY US ================== */
-const whyUs = [
-  { icon: Users, title: "Dedicated Team", desc: "A senior pod aligned to your goals — no rotating juniors." },
-  { icon: Rocket, title: "Fast Delivery", desc: "Ship weekly with predictable milestone-based sprints." },
-  { icon: ShieldCheck, title: "Transparent Pricing", desc: "No hidden fees. Clear scope. Fixed or retainer options." },
-  { icon: LineChart, title: "Data-Driven Strategy", desc: "Every decision is grounded in analytics and cohort data." },
-  { icon: HeartHandshake, title: "Long-Term Partnership", desc: "We're in it for the compounding wins, not one-offs." },
-  { icon: Clock, title: "24/7 Support", desc: "Global team means someone is always online for you." },
-  { icon: Zap, title: "Latest Technologies", desc: "React, Next.js, AI, Cloud — modern stack, production-ready." },
-  { icon: Award, title: "ROI-Focused Marketing", desc: "We measure revenue, not vanity metrics." },
-];
-
 function WhyUs() {
+  const whyUs = [
+    { title: "Dedicated Team", desc: "A senior pod aligned to your goals — no rotating juniors.", iconName: "Users" },
+    { title: "Fast Delivery", desc: "Ship weekly with predictable milestone-based sprints.", iconName: "Rocket" },
+    { title: "Transparent Pricing", desc: "No hidden fees. Clear scope. Fixed or retainer options.", iconName: "ShieldCheck" },
+    { title: "Data-Driven Strategy", desc: "Every decision is grounded in analytics and cohort data.", iconName: "LineChart" },
+    { title: "Long-Term Partnership", desc: "We're in it for the compounding wins, not one-offs.", iconName: "HeartHandshake" },
+    { title: "24/7 Support", desc: "Global team means someone is always online for you.", iconName: "Clock" },
+    { title: "Latest Technologies", desc: "React, Next.js, AI, Cloud — modern stack, production-ready.", iconName: "Zap" },
+    { title: "ROI-Focused Marketing", desc: "We measure revenue, not vanity metrics.", iconName: "Award" },
+  ];
+
+  const iconMap: Record<string, React.ElementType> = {
+    Users, Rocket, ShieldCheck, LineChart, HeartHandshake, Clock, Zap, Award
+  };
+
   return (
     <section className="relative overflow-hidden py-24">
       <div className="pointer-events-none absolute inset-0 bg-grid opacity-30" />
@@ -588,17 +599,20 @@ function WhyUs() {
         </Reveal>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {whyUs.map((w, i) => (
-            <Reveal key={w.title} delay={i % 4}>
-              <div className="h-full rounded-2xl border border-border bg-white p-5 shadow-card hover-lift">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-brand text-white">
-                  <w.icon className="h-5 w-5" />
+          {whyUs.map((w, i) => {
+            const Icon = iconMap[w.iconName];
+            return (
+              <Reveal key={w.title} delay={i % 4}>
+                <div className="h-full rounded-2xl border border-border bg-white p-5 shadow-card hover-lift">
+                  <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-brand text-white">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-3 font-display font-bold">{w.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{w.desc}</p>
                 </div>
-                <h3 className="mt-3 font-display font-bold">{w.title}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{w.desc}</p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
 
         <div className="mt-12 flex flex-wrap justify-center gap-3">
@@ -858,10 +872,6 @@ function Pricing() {
     </section>
   );
 }
-
-
-
-
 
 /* ================== TECH STACK ================== */
 const tech = ["React", "Next.js", "TypeScript", "Node.js", "Laravel", "Python", "Flutter", "Firebase", "AWS", "Google Cloud", "Docker", "MongoDB", "MySQL", "WordPress", "Shopify", "OpenAI"];
